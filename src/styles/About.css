@@ -1,0 +1,153 @@
+.about-container {
+  padding: 4rem 2rem;
+  background-color: #e2d1d1;
+  min-height: 100vh;
+  font-family: 'Playfair Display', serif;
+}
+
+.about-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeIn 1s ease-out;
+}
+
+.section-title {
+  color: #450920;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(to right, #ffa5ab, #da627d);
+}
+
+.intro-text {
+  text-align: center;
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+  color: #000000;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+}
+
+.image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0;
+}
+
+.profile-image {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.02);
+}
+
+.education-cards, .certification-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.education-card {
+  background: linear-gradient(135deg, #ffa5ab, #da627d);
+  padding: 2rem;
+  border-radius: 15px;
+  color: #450920;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
+
+.certification-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
+
+.education-card:hover,
+.certification-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.date {
+  font-style: italic;
+  margin-top: 1rem;
+  color: #450920;
+}
+
+.cert-button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: #da627d;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  margin-top: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.cert-button:hover {
+  background-color: #450920;
+  transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    padding: 2rem 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .profile-image {
+    max-width: 300px;
+  }
+
+  .education-cards,
+  .certification-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .education-card,
+  .certification-card {
+    padding: 1.5rem;
+  }
+}

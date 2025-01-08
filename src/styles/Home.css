@@ -1,0 +1,143 @@
+/* Home.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+.home-container {
+  background-color: #e2d1d1;
+  font-family: 'Playfair Display', serif;
+  color: #450920;
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.left-section, .right-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.name {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #a53860;
+  margin-bottom: 2rem;
+}
+
+.description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #450920;
+}
+
+/* Qualities Section */
+.qualities-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 4rem 2rem;
+  background-color: #ffa5ab;
+}
+
+.quality-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.quality-card:hover {
+  transform: translateY(-5px);
+}
+
+.quality-icon {
+  font-size: 2.5rem;
+  color: #da627d;
+  margin-bottom: 1rem;
+}
+
+/* Presentation Section */
+.presentation-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #450920;
+  color: white;
+}
+
+.cv-button {
+  background-color: #da627d;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 2rem;
+}
+
+.cv-button:hover {
+  background-color: #a53860;
+}
+
+/* BTS Section */
+.bts-section {
+  padding: 4rem 2rem;
+}
+
+.bts-info {
+  max-width: 800px;
+  margin: 0 auto 4rem auto;
+}
+
+.options-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.option-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+  }
+
+  .qualities-section {
+    grid-template-columns: 1fr;
+  }
+
+  .options-container {
+    grid-template-columns: 1fr;
+  }
+
+  .name {
+    font-size: 3rem;
+  }
+
+  .left-section, .right-section {
+    padding: 1rem;
+  }
+}
+
+.profile-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(165, 56, 96, 0.3);
+}

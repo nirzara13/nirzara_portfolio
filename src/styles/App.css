@@ -1,0 +1,16 @@
+body {
+  font-family: 'Playfair Display', serif;
+  background-color: #f9dbbd;
+  color: #252422;
+}
+
+header, footer {
+  background-color: #252422;
+  color: #ffffff;
+  padding: 1em;
+  text-align: center;
+}
+
+h1, h2, h3, p {
+  margin: 0.5em 0;
+}

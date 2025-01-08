@@ -1,0 +1,96 @@
+.card-icon {
+  font-size: 2rem;
+  color: #a53860;
+  margin-bottom: 1rem;
+}
+
+.detail-card, .objective-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.detail-card h3, .objective-card h4 {
+  margin: 0.5rem 0;
+}
+
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-fade-in:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.animate-fade-in:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+
+.description-section {
+  background-color: white;
+  border-radius: 15px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.description-section p {
+  color: #450920;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  text-align: justify;
+  margin: 0;
+}
+
+
+
+.centered-title {
+  text-align: center;
+  color: #450920;
+  margin: 3rem 0 2rem 0;
+}
+
+.view-report-btn {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #da627d;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-report-btn:hover {
+  background-color: #a53860;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .description-section {
+    padding: 1.5rem;
+  }
+  
+  .description-section p {
+    font-size: 1rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+
+}

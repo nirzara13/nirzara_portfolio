@@ -1,0 +1,135 @@
+.header {
+    background-color: #450920;
+    color: #ffffff;
+    padding: 2.5em 0;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+  }
+  
+  .wave-container-top {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+  }
+  
+  .waves {
+    position: absolute;
+    top: -100px;
+    width: 100%;
+    height: 150px;
+    animation: moveWaves 10s linear infinite;
+  }
+  
+  .header-title {
+    font-size: 2.5em;
+    margin: 0;
+    animation: fadeInDown 1s ease-out;
+  }
+  
+  .nav-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2.5em; /* Augmentez l'espacement des boutons */
+    margin-top: 1em;
+    flex-wrap: wrap;
+  }
+  
+  .nav-links li {
+    display: inline;
+  }
+  
+  .nav-links a {
+    color: #ffa5ab;
+    text-decoration: none;
+    font-size: 1.2em;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: #ffffff;
+  }
+  
+  .nav-links a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ffa5ab;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .nav-links a:hover::before {
+    visibility: visible;
+    transform: scaleX(1);
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #450920;
+    min-width: 160px;
+    z-index: 1;
+    padding: 1em 0; /* Augmente l'espacement entre les sous-menus */
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown-content li {
+    padding: 0.5em 1em;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dropdown-content li:hover {
+    background-color: #a53860; /* Ajoute un effet de survol */
+  }
+  
+  @keyframes moveWaves {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-1600px);
+    }
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Media Queries for Responsive Design */
+  @media (max-width: 768px) {
+    .header-title {
+      font-size: 2em;
+    }
+  
+    .nav-links {
+      flex-direction: column;
+      align-items: center;
+      gap: 1em;
+    }
+  }
+  

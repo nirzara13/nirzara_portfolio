@@ -1,0 +1,119 @@
+.veille-container {
+  padding: 4rem 2rem;
+  background-color: #e2d1d1;
+  min-height: 100vh;
+  font-family: 'Playfair Display', serif;
+}
+
+.veille-title {
+  color: #450920;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  position: relative;
+}
+
+.veille-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 3px;
+  background: linear-gradient(to right, #ffa5ab, #da627d);
+}
+
+.intro-section {
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.topics-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.topic-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.topic-card:hover {
+  transform: translateY(-10px);
+}
+
+.topic-card h3 {
+  color: #450920;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.topic-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.topic-card li {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.topic-card li::before {
+  content: '•';
+  color: #da627d;
+  position: absolute;
+  left: 0;
+}
+
+.resources-section {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.resource-link {
+  display: block;
+  padding: 1rem;
+  background-color: #da627d;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.resource-link:hover {
+  background-color: #a53860;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .veille-container {
+    padding: 2rem 1rem;
+  }
+  
+  .veille-title {
+    font-size: 2rem;
+  }
+  
+  .topic-card {
+    padding: 1.5rem;
+  }
+}

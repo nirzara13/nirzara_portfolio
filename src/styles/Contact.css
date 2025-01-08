@@ -1,0 +1,138 @@
+.contact-container {
+    padding: 4rem 2rem;
+    background-color: #e2d1d1;
+    min-height: 100vh;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .contact-title {
+    color: #450920;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    position: relative;
+  }
+  
+  .contact-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, #ffa5ab, #da627d);
+  }
+  
+  .contact-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-info {
+    padding: 2rem;
+    background: linear-gradient(135deg, #ffa5ab, #da627d);
+    border-radius: 10px;
+    color: white;
+  }
+  
+  .contact-info h2 {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    color: #450920;
+  }
+  
+  .info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .info-item i {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+  }
+  
+  .social-links {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .social-links a {
+    color: white;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .social-links a:hover {
+    transform: scale(1.2);
+  }
+  
+  .contact-form {
+    padding: 2rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #ffa5ab;
+    border-radius: 8px;
+    font-family: 'Playfair Display', serif;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #da627d;
+  }
+  
+  .submit-button {
+    background: #450920;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Playfair Display', serif;
+    transition: all 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background: #a53860;
+    transform: translateY(-2px);
+  }
+  
+  @media (max-width: 768px) {
+    .contact-content {
+      grid-template-columns: 1fr;
+    }
+    
+    .contact-info,
+    .contact-form {
+      padding: 1.5rem;
+    }
+    
+    .contact-title {
+      font-size: 2rem;
+    }
+  }
