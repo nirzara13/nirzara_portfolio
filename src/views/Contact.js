@@ -5,38 +5,33 @@ import 'react-toastify/dist/ReactToastify.css';
 import '../styles/Contact.css';
 
 const Contact = () => {
-  // États pour gérer les données du formulaire et les états de l'interface
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: '',
   });
+
   const [errors, setErrors] = useState({});
   const [captchaToken, setCaptchaToken] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Fonction de validation du formulaire avec des règles strictes
   const validateForm = () => {
     const newErrors = {};
-    
-    // Validation du nom : au moins 2 caractères, lettres et espaces uniquement
+
     if (!formData.name.trim() || formData.name.trim().length < 2) {
       newErrors.name = 'Le nom doit contenir au moins 2 caractères';
     }
-    
-    // Validation email avec une expression régulière complète
+
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     if (!emailRegex.test(formData.email)) {
       newErrors.email = 'Veuillez entrer une adresse email valide';
     }
-    
-    // Validation du sujet
+
     if (!formData.subject.trim() || formData.subject.trim().length < 3) {
       newErrors.subject = 'Le sujet doit contenir au moins 3 caractères';
     }
-    
-    // Validation du message
+
     if (!formData.message.trim() || formData.message.trim().length < 10) {
       newErrors.message = 'Le message doit contenir au moins 10 caractères';
     }
@@ -45,11 +40,9 @@ const Contact = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  // Gestion de la soumission du formulaire
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Validation avant envoi
+
     if (!validateForm()) {
       toast.error('Veuillez corriger les erreurs dans le formulaire');
       return;
@@ -63,7 +56,6 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Appel au serveur local
       const response = await fetch('/api/sendEmail', {
         method: 'POST',
         headers: {
@@ -79,10 +71,9 @@ const Contact = () => {
 
       if (data.success) {
         toast.success('Message envoyé avec succès !');
-        // Réinitialisation du formulaire après succès
         setFormData({ name: '', email: '', subject: '', message: '' });
         setCaptchaToken(null);
-        // Réinitialisation du reCAPTCHA
+
         if (window.grecaptcha) {
           window.grecaptcha.reset();
         }
@@ -97,16 +88,15 @@ const Contact = () => {
     }
   };
 
-  // Gestion des changements dans les champs du formulaire
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
-    // Effacement des erreurs lors de la modification
+
     if (errors[name]) {
-      setErrors(prev => ({
+      setErrors((prev) => ({
         ...prev,
         [name]: '',
       }));
@@ -199,7 +189,7 @@ const Contact = () => {
           <div className="captcha-container">
             <ReCAPTCHA
               sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
-              onChange={token => setCaptchaToken(token)}
+              onChange={(token) => setCaptchaToken(token)}
             />
           </div>
 

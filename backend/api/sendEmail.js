@@ -1,7 +1,7 @@
-// backend/api/sendEmail.js
+// api/sendEmail.js
 const nodemailer = require('nodemailer');
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   // Activer CORS
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -22,18 +22,18 @@ module.exports = async (req, res) => {
       const { name, email, message } = req.body;
 
       const transporter = nodemailer.createTransport({
-        service: 'gmail', // ou votre service email
+        service: 'gmail',
         auth: {
           user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASSWORD
-        }
+          pass: process.env.EMAIL_PASSWORD,
+        },
       });
 
       const mailOptions = {
         from: process.env.EMAIL_USER,
         to: process.env.EMAIL_RECIPIENT,
         subject: `Nouveau message de ${name}`,
-        text: `De: ${name}\nEmail: ${email}\nMessage: ${message}`
+        text: `De: ${name}\nEmail: ${email}\nMessage: ${message}`,
       };
 
       await transporter.sendMail(mailOptions);
@@ -45,4 +45,4 @@ module.exports = async (req, res) => {
   } else {
     res.status(405).json({ error: 'Méthode non autorisée' });
   }
-};
+}
