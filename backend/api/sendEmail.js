@@ -2,32 +2,47 @@
 const nodemailer = require('nodemailer');
 
 module.exports = async (req, res) => {
+  // Activer CORS
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  );
+
+  // Gérer la requête OPTIONS (preflight)
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
+
   if (req.method === 'POST') {
-    const { subject, text, to } = req.body;
-
-    // Configurer le transporteur SMTP
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.EMAIL_USER,  // Ton email
-        pass: process.env.EMAIL_PASSWORD,  // Mot de passe de ton email ou mot de passe d'application
-      },
-    });
-
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: to || process.env.EMAIL_RECIPIENT,  // Utiliser l'email par défaut ou celui passé dans la requête
-      subject: subject || 'Email de test',
-      text: text || 'Ceci est un email de test envoyé depuis Vercel!',
-    };
-
     try {
+      const { name, email, message } = req.body;
+
+      const transporter = nodemailer.createTransport({
+        service: 'gmail', // ou votre service email
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASSWORD
+        }
+      });
+
+      const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: process.env.EMAIL_RECIPIENT,
+        subject: `Nouveau message de ${name}`,
+        text: `De: ${name}\nEmail: ${email}\nMessage: ${message}`
+      };
+
       await transporter.sendMail(mailOptions);
-      res.status(200).send('Email envoyé');
+      res.status(200).json({ message: 'Email envoyé avec succès' });
     } catch (error) {
-      res.status(500).send('Erreur lors de l\'envoi de l\'email');
+      console.error('Erreur lors de l\'envoi de l\'email:', error);
+      res.status(500).json({ error: 'Erreur lors de l\'envoi de l\'email' });
     }
   } else {
-    res.status(405).send('Méthode non autorisée');
+    res.status(405).json({ error: 'Méthode non autorisée' });
   }
 };

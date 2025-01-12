@@ -64,7 +64,7 @@ const Contact = () => {
 
     try {
       // Appel au serveur local
-      const response = await fetch('http://localhost:5000/contact', {
+      const response = await fetch('/api/sendEmail', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
