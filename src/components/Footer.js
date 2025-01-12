@@ -13,14 +13,14 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-column">
           <h3>Contact</h3>
-          <p><FaEnvelope /> contact@nirzarabarua.com</p>
+          <p><FaEnvelope /> nirzarabarua@gmail.com</p>
         </div>
         <div className="footer-column">
           <h3>Suivez-moi</h3>
           <p>
             <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedin /> LinkedIn</a> | 
             <a href="https://www.github.com" target="_blank" rel="noopener noreferrer"><FaGithub /> GitHub</a> | 
-            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter /> Twitter</a>
+            
           </p>
         </div>
         <div className="footer-column">

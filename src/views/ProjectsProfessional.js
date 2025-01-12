@@ -7,15 +7,46 @@ const ProjectsProfessional = () => {
     {
       id: 1,
       title: "Projet 1",
-      image: "/images/projet1.jpg", // À remplacer par votre image
+      image: "/photo_woman.avif", // À remplacer par votre image
       route: "/project/1"
     },
     {
       id: 2,
       title: "Projet 2",
-      image: "/images/projet2.jpg", // À remplacer par votre image
+      image: "/photo_woman.avif", // À remplacer par votre image
       route: "/project/2"
     },
+
+    {
+      id: 3,
+      title: "Projet 3",
+      image: "/photo_woman.avif", // À remplacer par votre image
+      route: "/project/1"
+    },
+    {
+      id: 4,
+      title: "Projet 4",
+      image: "/photo_woman.avif", // À remplacer par votre image
+      route: "/project/2"
+    },
+
+    {
+      id: 5,
+      title: "Projet 5",
+      image: "/photo_woman.avif", // À remplacer par votre image
+      route: "/project/1"
+    },
+    {
+      id: 6,
+      title: "Projet 6",
+      image: "/photo_woman.avif", // À remplacer par votre image
+      route: "/project/2"
+    },
+
+
+
+
+
     // Ajoutez d'autres projets selon vos besoins
   ];
 

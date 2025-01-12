@@ -18,7 +18,7 @@ const About = () => {
         {/* Remplacez le chemin de l'image par votre image dans le dossier public */}
         <div className="image-container">
           <img 
-            src="/images/profile.jpg" 
+            src="/profil_photo.webp" 
             alt="Portrait de profil" 
             className="profile-image"
           />

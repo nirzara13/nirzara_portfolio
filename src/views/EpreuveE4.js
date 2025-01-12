@@ -58,7 +58,7 @@ const EpreuveE4 = () => {
           <div className="detail-card">
             <FaGraduationCap className="card-icon" />
             <h3>Coefficient</h3>
-            <p>Coeff. 5</p>
+            <p>Coeff. 4</p>
           </div>
 
           <div className="detail-card">

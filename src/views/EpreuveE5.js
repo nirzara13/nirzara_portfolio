@@ -62,7 +62,7 @@ const EpreuveE5 = () => {
           <div className="detail-card">
             <FaClock className="card-icon" />
             <h3>Durée</h3>
-            <p>20 minutes de préparation</p>
+            <p> 1h 30 minutes de préparation</p>
             <p>20 minutes d'oral</p>
           </div>
         </div>

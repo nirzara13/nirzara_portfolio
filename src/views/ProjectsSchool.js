@@ -7,16 +7,38 @@ const ProjectsSchool = () => {
       id: 1,
       title: "Projet Scolaire 1",
       description: "Description détaillée du projet scolaire 1...",
-      image: "/images/school-project1.jpg", // À remplacer par votre image
+      image: "/profil_photo.webp", // À remplacer par votre image
       pdfUrl: "/pdfs/projet1.pdf"
     },
     {
       id: 2,
       title: "Projet Scolaire 2",
       description: "Description détaillée du projet scolaire 2...",
-      image: "/images/school-project2.jpg", // À remplacer par votre image
+      image: "/profil_photo.webp", // À remplacer par votre image
       pdfUrl: "/pdfs/projet2.pdf"
     },
+
+    {
+      id: 3,
+      title: "Projet Scolaire 3",
+      description: "Description détaillée du projet scolaire 1...",
+      image: "/profil_photo.webp", // À remplacer par votre image
+      pdfUrl: "/pdfs/projet1.pdf"
+    },
+    {
+      id: 4,
+      title: "Projet Scolaire 4",
+      description: "Description détaillée du projet scolaire 2...",
+      image: "/profil_photo.webp", // À remplacer par votre image
+      pdfUrl: "/pdfs/projet2.pdf"
+    },
+
+    
+
+
+
+
+
     // Ajoutez d'autres projets selon vos besoins
   ];
 
