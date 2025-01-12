@@ -1,0 +1,41 @@
+[33mcommit 7098921d7db20349012d63e01dc1224b970092b5[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: nirzara13 <barua.nirzara1323@gmail.com>
+Date:   Sun Jan 12 20:01:57 2025 +0100
+
+    test
+
+[33mcommit d7afbaf1d7d64b9cd6fe887032b2d2b64029f1f3[m
+Author: nirzara13 <barua.nirzara1323@gmail.com>
+Date:   Sun Jan 12 19:50:40 2025 +0100
+
+    test backend
+
+[33mcommit ead1d9ca2e1ceff8f5e8494cc463e041611806e7[m
+Author: nirzara13 <barua.nirzara1323@gmail.com>
+Date:   Sun Jan 12 19:39:37 2025 +0100
+
+    Test
+
+[33mcommit 051a83a5c6f0f336b4f2847a26fd25bb33b60a64[m
+Author: nirzara13 <barua.nirzara1323@gmail.com>
+Date:   Sun Jan 12 19:08:11 2025 +0100
+
+    Test backend
+
+[33mcommit 19b6be554febe0e4b890ff6d655b37138a97e865[m
+Author: nirzara13 <barua.nirzara1323@gmail.com>
+Date:   Sun Jan 12 18:41:19 2025 +0100
+
+    Test du backend
+
+[33mcommit 76d674745b432ab6e00dae5a2585ffe5d35269be[m
+Author: nirzara13 <barua.nirzara1323@gmail.com>
+Date:   Sun Jan 12 18:21:55 2025 +0100
+
+    Ajout du backend avec API pour l'envoie d'email
+
+[33mcommit f2a703551e965ab49b491e09e7a3792b46654ff5[m
+Author: nirzara13 <barua.nirzara1323@gmail.com>
+Date:   Wed Jan 8 09:51:51 2025 +0100
+
+    Initial commit
