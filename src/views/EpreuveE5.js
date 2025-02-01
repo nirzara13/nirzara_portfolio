@@ -1,11 +1,13 @@
 import React from 'react';
 import { 
-  FaGraduationCap,
-  FaClipboardList, 
-  FaClock, 
-  FaShieldAlt, 
-  FaDatabase, 
-  FaLock 
+  FaGraduationCap, 
+  FaBriefcase, 
+  FaFileAlt, 
+  FaLock,
+  FaClipboardList,
+  FaClock,
+  FaLightbulb,
+  FaWrench
 } from 'react-icons/fa';
 import '../styles/EpreuveE5.css';
 
@@ -19,24 +21,26 @@ const EpreuveE5 = () => {
 
       <div className="description-section animate-fade-in">
         <p>
-          L'épreuve E5 - Cybersécurité des services informatiques est une épreuve cruciale du BTS SIO qui évalue les compétences en matière de sécurité informatique. Cette épreuve pratique permet aux étudiants de démontrer leur capacité à protéger les systèmes d'information, à sécuriser les données et à mettre en place des solutions de cybersécurité efficaces. Elle met l'accent sur la protection des infrastructures, la gestion des accès et la sécurisation des données sensibles de l'entreprise.
+          L'épreuve E5, intitulée "Support et mise à disposition de services informatiques", est une épreuve orale du BTS SIO. Elle a pour objectif d'évaluer les compétences techniques et méthodologiques acquises par l'étudiant dans le domaine des solutions informatiques. Cette épreuve repose sur un projet réalisé en milieu professionnel ou académique, qui doit répondre à des besoins spécifiques identifiés dans un contexte donné.
         </p>
+        <br />
+        <p>Cette épreuve est aussi accompagnée d'un tableau des compétences, compétences qui devront être décrites et réalisées au cours des projets présentés.</p>
       </div>
 
       <div className="pdf-preview animate-fade-in">
         <h2>Voir le tableau des compétences</h2>
         <div className="iframe-container">
           <iframe 
-            src="/Tableau_competences_E5.pdf" 
+            src="/Nirzara_Barua_Annexe_6-1_Tableau_de_synthese_Epreuve_E5_BTS_SIO_2025.pdf" 
             width="100%" 
             height="500px" 
             frameBorder="0"
-            title="Tableau des compétences E5"
+            title="Tableau des compétences"
           >
             Ce PDF ne peut pas être affiché dans votre navigateur.
           </iframe>
         </div>
-        <a href="/Tableau_competences_E5.pdf" 
+        <a href="/Nirzara_Barua_Annexe_6-1_Tableau_de_synthese_Epreuve_E5_BTS_SIO_2025.pdf" 
            className="download-btn" 
            download
         >
@@ -50,7 +54,7 @@ const EpreuveE5 = () => {
           <div className="detail-card">
             <FaClipboardList className="card-icon" />
             <h3>Nature</h3>
-            <p>Cybersécurité des services informatiques</p>
+            <p>Production et fourniture de services</p>
           </div>
 
           <div className="detail-card">
@@ -62,29 +66,61 @@ const EpreuveE5 = () => {
           <div className="detail-card">
             <FaClock className="card-icon" />
             <h3>Durée</h3>
-            <p> 1h 30 minutes de préparation</p>
-            <p>20 minutes d'oral</p>
+            <p>10 minutes de présentation réalisée par l'étudiant(e)</p>
+            <p>30 minutes d'échange</p>
           </div>
         </div>
 
         <h2 className="centered-title">Objectifs de l'épreuve</h2>
         <div className="cards-container">
           <div className="objective-card">
-            <FaShieldAlt className="card-icon" />
-            <h4>Protection des données</h4>
-            <p>Protéger les données à caractère personnel</p>
+            <FaLightbulb className="card-icon" />
+            <h4>Analyse des besoins</h4>
+            <p>Comprendre et analyser les besoins métiers pour proposer des solutions adaptées.</p>
           </div>
 
           <div className="objective-card">
-            <FaDatabase className="card-icon" />
-            <h4>Sécurisation</h4>
-            <p>Préserver l'identité numérique de l'organisation</p>
+            <FaWrench className="card-icon" />
+            <h4>Déploiement</h4>
+            <p>Mettre en place des services informatiques et assurer leur bon fonctionnement.</p>
           </div>
 
           <div className="objective-card">
             <FaLock className="card-icon" />
-            <h4>Cybersécurité</h4>
-            <p>Sécuriser les équipements et les services</p>
+            <h4>Sécurité</h4>
+            <p>Garantir la sécurité des données et des services mis en place.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="parcours-section animate-fade-in">
+        <h2>
+          <FaBriefcase className="section-icon" />
+          Mon Parcours Professionnel
+        </h2>
+        <div className="stages-container">
+          <div className="stage-card">
+            <h3>Stage - Deuxième année de BTS SIO </h3>
+            <p>Du 02/12/2024 au 24/01/2025</p>
+            <a href="/Rapport_de_Stage_Digital_Car_Nirzara.pdf" 
+               className="view-report-btn" 
+               target="_blank"
+               rel="noopener noreferrer">
+              <FaFileAlt className="btn-icon" />
+              Voir le rapport de stage
+            </a>
+          </div>
+
+          <div className="stage-card">
+            <h3>Stage - Première année de stage en BTS SIO</h3>
+            <p>Du 13/05/2024 au 05/07/2024</p>
+            <a href="/Rapport_de_Stage_Nirzara_BARUA.pdf" 
+               className="view-report-btn"
+               target="_blank"
+               rel="noopener noreferrer">
+              <FaFileAlt className="btn-icon" />
+              Voir le rapport de stage
+            </a>
           </div>
         </div>
       </section>

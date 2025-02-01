@@ -117,6 +117,145 @@
   transform: translateY(-2px);
 }
 
+.cert-logo {
+  max-width: 80%;  /* L'image ne dépassera pas 80% de la largeur du cadre */
+  height: auto;    /* Conserve les proportions */
+  display: block;  /* Évite les espaces indésirables */
+  margin: 0 auto;  /* Centre l’image */
+}
+
+/* Ajustement pour les écrans plus petits */
+@media (max-width: 768px) {
+  .cert-logo {
+    max-width: 60%;  /* L’image sera plus petite sur mobile */
+  }
+}
+
+
+/* Nouveaux styles pour la section des compétences */
+.skills-section,
+.tools-section {
+  margin: 4rem 0;
+  animation: fadeIn 1s ease-out;
+}
+
+.skills-title,
+.tools-title {
+  color: #450920;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  position: relative;
+}
+
+.skills-title::after,
+.tools-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(to right, #ffa5ab, #da627d);
+}
+
+.skills-description,
+.tools-description {
+  text-align: center;
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+  color: #000000;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+}
+
+.skills-grid,
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.skill-item,
+.tool-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skill-item:hover,
+.tool-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.skill-image,
+.tool-image {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+}
+
+.skill-desc,
+.tool-desc {
+  color: #450920;
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .skills-grid,
+  .tools-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-image,
+  .tool-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .skills-title,
+  .tools-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skill-image,
+  .tool-image {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+
+
+
+
+@media (max-width: 480px) {
+  .cert-logo {
+    max-width: 50%;  /* Encore plus petite sur les très petits écrans */
+  }
+}
+
+
 @keyframes fadeIn {
   from {
     opacity: 0;

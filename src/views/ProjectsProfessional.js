@@ -1,53 +1,60 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Code, Globe, PenTool, Play, Database } from 'lucide-react';
+import digitalCarLogo from '../assets/car_logo.png';
+import wordpressLogo from '../assets/cms.jpg';
+import signatureLogo from '../assets/docu_sign.jpg';
+import manimLogo from '../assets/manim_logo_noir.png';
+import dataikusLogo from '../assets/dataiku-logo.jpg';
 import '../styles/ProjectsProfessional.css';
 
 const ProjectsProfessional = () => {
   const projects = [
     {
       id: 1,
-      title: "Projet 1",
-      image: "/photo_woman.avif", // À remplacer par votre image
-      route: "/project/1"
+      title: "Digital Car",
+      subtitle: "Application full-stack A.D.A.S",
+      image: digitalCarLogo,
+      route: "/digitalcar",
+      alt: "Logo Digital Car",
+      icon: <Code size={24} color="#a53860" />
     },
     {
       id: 2,
-      title: "Projet 2",
-      image: "/photo_woman.avif", // À remplacer par votre image
-      route: "/project/2"
+      title: "Site Web Wordpress",
+      subtitle: "Développement web",
+      image: wordpressLogo,
+      route: "/wordpress",
+      alt: "Logo WordPress",
+      icon: <Globe size={24} color="#a53860" />
     },
-
     {
       id: 3,
-      title: "Projet 3",
-      image: "/photo_woman.avif", // À remplacer par votre image
-      route: "/project/1"
+      title: "Signature Électronique",
+      subtitle: "Solution de signature numérique",
+      image: signatureLogo,
+      route: "/signature",
+      alt: "Logo Signature Électronique",
+      icon: <PenTool size={24} color="#a53860" />
     },
     {
       id: 4,
-      title: "Projet 4",
-      image: "/photo_woman.avif", // À remplacer par votre image
-      route: "/project/2"
+      title: "Manim",
+      subtitle: "Animation mathématique",
+      image: manimLogo,
+      route: "/manim",
+      alt: "Logo Manim",
+      icon: <Play size={24} color="#a53860" />
     },
-
     {
       id: 5,
-      title: "Projet 5",
-      image: "/photo_woman.avif", // À remplacer par votre image
-      route: "/project/1"
-    },
-    {
-      id: 6,
-      title: "Projet 6",
-      image: "/photo_woman.avif", // À remplacer par votre image
-      route: "/project/2"
-    },
-
-
-
-
-
-    // Ajoutez d'autres projets selon vos besoins
+      title: "Dataiku",
+      subtitle: "Analyse de données",
+      image: dataikusLogo,
+      route: "/dataiku",
+      alt: "Logo Dataiku",
+      icon: <Database size={24} color="#a53860" />
+    }
   ];
 
   return (
@@ -56,14 +63,18 @@ const ProjectsProfessional = () => {
       <div className="projects-grid">
         {projects.map((project) => (
           <div key={project.id} className="project-card">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="project-image"
-            />
-            <div className="project-content">
-              <h2 className="project-title">{project.title}</h2>
-              <Link to={project.route} className="project-button">
+            <img src={project.image} alt={project.alt} className="project-image" />
+            <div className="project-info">
+              <div className="project-header">
+                {project.icon}
+                <h2>{project.title}</h2>
+              </div>
+              <p>{project.subtitle}</p>
+              <Link 
+                to={project.route} 
+                className="project-link"
+                aria-label={`En savoir plus sur ${project.title}`}
+              >
                 En savoir plus
               </Link>
             </div>

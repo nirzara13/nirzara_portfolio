@@ -99,6 +99,34 @@
   .dropdown-content li:hover {
     background-color: #a53860; /* Ajoute un effet de survol */
   }
+
+  .nav-links .dropdown {
+    color: #ffa5ab;  /* Même couleur que les autres liens */
+    font-size: 1.2em;  /* Même taille que les autres liens */
+    cursor: pointer;  /* Pour indiquer que c'est cliquable */
+}
+
+.nav-links .dropdown:hover {
+    color: #ffffff;  /* Même effet de survol que les autres liens */
+}
+
+.nav-links .dropdown::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ffa5ab;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-links .dropdown:hover::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
   
   @keyframes moveWaves {
     0% {

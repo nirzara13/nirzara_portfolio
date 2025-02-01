@@ -1,6 +1,8 @@
 import React from 'react';
 import '../styles/Footer.css';
-import { FaLinkedin, FaGithub, FaTwitter, FaEnvelope } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import logo from '../assets/logo_Nirzara.png';
 
 const Footer = () => {
   return (
@@ -12,19 +14,19 @@ const Footer = () => {
       </div>
       <div className="footer-content">
         <div className="footer-column">
-          <h3>Contact</h3>
-          <p><FaEnvelope /> nirzarabarua@gmail.com</p>
+          <img src={logo} alt="Logo Portfolio" className="footer-logo" />
+          
         </div>
         <div className="footer-column">
           <h3>Suivez-moi</h3>
           <p>
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedin /> LinkedIn</a> | 
-            <a href="https://www.github.com" target="_blank" rel="noopener noreferrer"><FaGithub /> GitHub</a> | 
-            
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedin /> LinkedIn</a> |
+            <a href="https://www.github.com" target="_blank" rel="noopener noreferrer"><FaGithub /> GitHub</a>
           </p>
         </div>
         <div className="footer-column">
           <h3>© 2025 Nirzara BARUA</h3>
+          <Link to="/mentions-legales" className="legal-link">Mentions légales</Link>
         </div>
       </div>
     </footer>

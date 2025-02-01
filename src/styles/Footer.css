@@ -1,81 +1,132 @@
 .footer {
-    background-color: #000000;
-    color: #ffa5ab;
-    text-align: center;
-    font-family: 'Playfair Display', serif;
-    position: relative;
-    padding-top: 3em;
+  background-color: #000000;
+  color: #ffa5ab;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  position: relative;
+  padding-top: 3em;
+}
+
+.wave-container-bottom {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+}
+
+.waves {
+  position: absolute;
+  top: -50px;
+  width: 100%;
+  height: 150px;
+  animation: moveWaves 10s linear infinite;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  padding: 2em 0;
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  flex: 1;
+  margin: 1em;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 1em;
+  transition: transform 0.3s ease;
+}
+
+.footer-logo:hover {
+  transform: scale(1.1);
+}
+
+.footer-column h3 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+  color: #da627d;
+}
+
+.footer-column p, 
+.footer-column a {
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.footer-column a {
+  margin: 0 0.5em;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: #da627d;
+  transform: translateY(-2px);
+}
+
+.legal-link {
+  color: #ffa5ab;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  margin-top: 0.5em;
+}
+
+.legal-link:hover {
+  color: #da627d;
+}
+
+@keyframes moveWaves {
+  0% {
+    transform: translateX(0);
   }
-  
-  .wave-container-bottom {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 150px;
-    overflow: hidden;
+  100% {
+    transform: translateX(-1600px);
   }
-  
-  .waves {
-    position: absolute;
-    top: -50px;
-    width: 100%;
-    height: 150px;
-    animation: moveWaves 10s linear infinite;
-  }
-  
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
   .footer-content {
-    display: flex;
-    justify-content: space-around;
-    padding: 2em 0;
-    flex-wrap: wrap;
-  }
-  
-  .footer-column {
-    flex: 1;
-    margin: 1em;
-  }
-  
-  .footer-column h3 {
-    font-size: 1.5em;
-    margin-bottom: 0.5em;
-    color: #da627d;
-  }
-  
-  .footer-column p, .footer-column a {
-    color: #ffffff;
-    text-decoration: none;
-    display: inline-flex;
+    flex-direction: column;
     align-items: center;
-    gap: 0.5em;
+  }
+
+  .footer-column {
+    width: 80%;
+    text-align: center;
+    margin: 1em 0;
+  }
+
+  .footer-logo {
+    width: 120px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .waves {
+    animation: none;
   }
   
+  .footer-logo,
   .footer-column a {
-    margin: 0 0.5em;
+    transition: none;
   }
-  
-  .footer-column a:hover {
-    color: #da627d;
-  }
-  
-  @keyframes moveWaves {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-1600px);
-    }
-  }
-  
-  /* Media Queries for Responsive Design */
-  @media (max-width: 768px) {
-    .footer-content {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .footer-column {
-      width: 80%;
-      text-align: center;
-    }
-  }
-  
+}
+
+.footer-column a:focus,
+.legal-link:focus {
+  outline: 2px solid #da627d;
+  outline-offset: 2px;
+}

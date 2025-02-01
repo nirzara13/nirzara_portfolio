@@ -13,8 +13,7 @@ const Home = () => {
           <h1 className="name">Nirzara BARUA</h1>
           <p class="description">
             Bonjour, <br />
-            Étant une étudiante passionnée en BTS SIO, option SLAM, je me spécialise 
-            dans le développement et la gestion de solutions logicielles innovantes.
+            En tant qu'étudiante en BTS Services Informatiques aux Organisations (SIO) option Solutions Logicielles et Applications Métiers (SLAM), je me forme aux différentes facettes du développement d'applications. Ma formation me permet d'acquérir des compétences en programmation, conception de bases de données, développement web, tout en apprenant à répondre aux besoins spécifiques des entreprises.
           </p>
         </div>
         <div class="right-section">
@@ -52,7 +51,7 @@ const Home = () => {
         <h2>Présentation</h2>
         <p>Bienvenue sur mon portfolio ! Découvrez mon travail et mes projets récents ci-dessous.</p>
         <br></br>
-        <a href="/CV_stage_Nirzara_2eme_annee.pdf" target="_blank" className="cv-button">Voir le CV</a> {/* Lien vers le CV */}
+        <a href="/CV_Licence_Nirzara.pdf" target="_blank" className="cv-button">Voir le CV</a> {/* Lien vers le CV */}
       </div>
 
       {/* Section BTS SIO */}
@@ -65,12 +64,12 @@ const Home = () => {
         <div className="options-container">
           <div className="option-card">
             <h3>Option SLAM</h3>
-            <p>L'option SLAM se concentre sur le développement d'applications et de solutions logicielles. Les étudiants apprennent à créer des logiciels adaptés aux besoins spécifiques des entreprises, à développer des interfaces utilisateur et à gérer des bases de données.</p>
+            <p>L'option Solutions Logicielles et Applications Métiers (SLAM) forme des spécialistes des logiciels, capables de participer à la conception, au développement, à l'intégration et à la maintenance des applications informatiques. Les étudiants acquièrent des compétences en analyse des besoins, rédaction de cahiers des charges, développement logiciel et gestion de projets informatiques.</p>
           </div>
           
           <div className="option-card">
             <h3>Option SISR</h3>
-            <p>L'option SISR est axée sur la gestion des infrastructures informatiques. Les étudiants se forment à la gestion des réseaux, des systèmes et des serveurs. Ils apprennent également à maintenir des environnements informatiques sécurisés et à résoudre des problèmes techniques.</p>
+            <p>L'option Solutions d'Infrastructure, Systèmes et Réseaux (SISR) forme des spécialistes en infrastructures informatiques, capables de gérer, maintenir et sécuriser les réseaux et systèmes d'information des organisations. Les étudiants acquièrent des compétences en administration de réseaux, configuration de serveurs, mise en place de solutions de sécurité, et résolution de problèmes techniques complexes.</p>
           </div>
         </div>
       </div>

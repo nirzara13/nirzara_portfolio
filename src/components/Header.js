@@ -21,10 +21,10 @@ const Header = () => {
           <li><Link to="/projects-professional">Projets Professionnels</Link></li>
           <li><Link to="/veille-technologique">Veille Technologique</Link></li>
           <li className="dropdown">
-            Epreuves
+          Épreuves
             <ul className="dropdown-content">
-              <li><Link to="/epreuve-e4">Epreuve E4</Link></li>
-              <li><Link to="/epreuve-e5">Epreuve E5</Link></li>
+              <li><Link to="/epreuve-e5">Épreuve E5</Link></li>
+              <li><Link to="/epreuve-e6">Épreuve E6</Link></li>
             </ul>
           </li>
           <li><Link to="/contact">Contact</Link></li> {/* Ajout du lien de la page de contact */}
