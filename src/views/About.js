@@ -58,6 +58,7 @@ const About = () => {
               <div className="education-card">
               <h3>BTS SIO Option SLAM</h3>
               <p>Solutions logicielles et Applications Métiers</p>
+              <p>Lycée Polyvalent Turgot à Paris (3ᵉ arrondissement)</p>
               <p className="date">2023 - 2025</p>
             </div>
 
@@ -251,4 +252,5 @@ const About = () => {
 
 
 export default About;
+
 
