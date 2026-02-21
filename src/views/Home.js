@@ -13,7 +13,7 @@ const Home = () => {
           <h1 className="name">Nirzara BARUA</h1>
           <p class="description">
             Bonjour, <br />
-            En tant qu'étudiante en BTS Services Informatiques aux Organisations (SIO) option Solutions Logicielles et Applications Métiers (SLAM), je me forme aux différentes facettes du développement d'applications. Ma formation me permet d'acquérir des compétences en programmation, conception de bases de données, développement web, tout en apprenant à répondre aux besoins spécifiques des entreprises.
+       Étudiante en Licence 3 Informatique – Développement, Réseaux et Cybersécurité en alternance, je me spécialise dans les systèmes d'information, la cybersécurité et le développement web. Au fil de mes stages et de mon alternance, j'ai développé des compétences en administration de bases de données, en conception de dashboards Power BI et en développement full stack. J'aspire à évoluer vers des fonctions de gouvernance et de sécurité des systèmes d'information. Ce portfolio présente l'ensemble de mes projets et réalisations."
           </p>
         </div>
         <div class="right-section">
@@ -78,5 +78,6 @@ const Home = () => {
 }
 
 export default Home;
+
 
 
