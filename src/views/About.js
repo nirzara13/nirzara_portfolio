@@ -52,7 +52,7 @@ const About = () => {
             </div>
 
             <div className="education-card">
-              <h3>Baccalauréat professionnelle TMCVA</h3>
+              <h3>Baccalauréat professionnelle TMCVA avec mention Très bien</h3>
               <p className="date">2020 - 2023</p>
             </div>
 
@@ -238,5 +238,6 @@ const About = () => {
     </div>
   );
 };
+
 
 export default About;
