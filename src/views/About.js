@@ -45,7 +45,17 @@ const About = () => {
         <section className="education-section">
           <h2 className="section-title">Mon Parcours Scolaire</h2>
           <div className="education-cards">
-            <div className="education-card">
+
+
+           <div className="education-card">
+           <h3>Licence 3 Informatique</h3>
+           <p>Développement, Réseaux et Cybersécurité</p>
+           <p>UFA Charles de Foucauld – En partenariat avec le CNAM | Contrat d'apprentissage</p>
+           <p className="date">2025 - 2026</p>
+           </div>
+              
+              
+              <div className="education-card">
               <h3>BTS SIO Option SLAM</h3>
               <p>Solutions logicielles et Applications Métiers</p>
               <p className="date">2023 - 2025</p>
@@ -241,3 +251,4 @@ const About = () => {
 
 
 export default About;
+
