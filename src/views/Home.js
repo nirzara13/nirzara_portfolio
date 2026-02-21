@@ -51,7 +51,7 @@ const Home = () => {
         <h2>Présentation</h2>
         <p>Bienvenue sur mon portfolio ! Découvrez mon travail et mes projets récents ci-dessous.</p>
         <br></br>
-        <a href="/CV Master.pdf" target="_blank" className="cv-button">Voir le CV</a> {/* Lien vers le CV */}
+        <a href="/CV Master M1.pdf" target="_blank" className="cv-button">Voir le CV</a> {/* Lien vers le CV */}
       </div>
 
       {/* Section BTS SIO */}
@@ -78,4 +78,5 @@ const Home = () => {
 }
 
 export default Home;
+
 
