@@ -21,6 +21,7 @@ import puttyLogo from '../assets/putty.png';
 import filezillaLogo from '../assets/file_zilla.jpg';
 import oraclevmLogo from '../assets/oracle_vm_virtual_box.jpg';
 import ciscoLogo from '../assets/cisco_packet_tracer.png';
+import powerbiLogo from '../assets/powerbi.jpg';
 
 
 
@@ -237,6 +238,14 @@ const About = () => {
               </p>
             </div>
 
+
+  <div className="tool-item">
+  <img src={powerbiLogo} alt="Power BI" className="tool-image" />
+  <p className="tool-desc">
+    Outil de visualisation de données et de création de tableaux de bord interactifs.
+  </p>
+</div>
+
             <div className="tool-item">
               <img src={ciscoLogo} alt="Cisco Packet Tracer" className="tool-image" />
               <p className="tool-desc">
@@ -252,5 +261,6 @@ const About = () => {
 
 
 export default About;
+
 
 
