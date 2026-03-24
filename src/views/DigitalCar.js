@@ -2,6 +2,8 @@
 
 import React from 'react';
 import '../styles/ProjectDetail.css';
+import logo from '../assets/Logo Digital Car.png';
+import screenshot from '../assets/Page d_accueil Digital Car.png';
 
 const DigitalCar = () => {
   return (
@@ -9,8 +11,8 @@ const DigitalCar = () => {
       <h1 className="project-header">
         Développement d'une application full-stack pour Digital Car
       </h1>
-      <img
-        src="/assets/Logo Digital Car.png"
+    
+      <img src={logo} alt="Logo de Digital Car" className="project-logo" />
         alt="Logo de Digital Car"
         className="project-logo"
       />
@@ -23,8 +25,7 @@ const DigitalCar = () => {
       <p className="project-description">
         L’application a été développée avec **Django** pour le backend et **Vue.js 3** pour le frontend. Les utilisateurs peuvent s’inscrire avec un mot de passe sécurisé et se connecter pour accéder à un formulaire de sélection des composants, incluant des menus déroulants pour les marques, modèles et composants ADAS.
       </p>
-      <img
-        src="/assets/digital_car.png"
+      <img src={screenshot} alt="Capture d'écran de l'application" className="project-screenshot" />
         alt="Capture d'écran de l'application"
         className="project-screenshot"
       />
