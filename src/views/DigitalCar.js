@@ -10,7 +10,7 @@ const DigitalCar = () => {
         Développement d'une application full-stack pour Digital Car
       </h1>
       <img
-        src="/assets/car_logo.png"
+        src="/assets/Logo Digital Car.png"
         alt="Logo de Digital Car"
         className="project-logo"
       />
