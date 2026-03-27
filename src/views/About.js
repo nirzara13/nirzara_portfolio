@@ -21,6 +21,7 @@ import puttyLogo from '../assets/putty.png';
 import filezillaLogo from '../assets/file_zilla.jpg';
 import oraclevmLogo from '../assets/oracle_vm_virtual_box.jpg';
 import ciscoLogo from '../assets/cisco_packet_tracer.png';
+import powerbiLogo from '../assets/powerbi.jpg';
 
 
 
@@ -45,14 +46,25 @@ const About = () => {
         <section className="education-section">
           <h2 className="section-title">Mon Parcours Scolaire</h2>
           <div className="education-cards">
-            <div className="education-card">
+
+
+           <div className="education-card">
+           <h3>Licence 3 Informatique</h3>
+           <p>Développement, Réseaux et Cybersécurité</p>
+           <p>UFA Charles de Foucauld – En partenariat avec le CNAM | Contrat d'apprentissage</p>
+           <p className="date">2025 - 2026</p>
+           </div>
+              
+              
+              <div className="education-card">
               <h3>BTS SIO Option SLAM</h3>
               <p>Solutions logicielles et Applications Métiers</p>
+              <p>Lycée Polyvalent Turgot à Paris (3ᵉ arrondissement)</p>
               <p className="date">2023 - 2025</p>
             </div>
 
             <div className="education-card">
-              <h3>Baccalauréat professionnelle TMCVA</h3>
+              <h3>Baccalauréat professionnelle TMCVA avec mention Très bien</h3>
               <p className="date">2020 - 2023</p>
             </div>
 
@@ -226,6 +238,14 @@ const About = () => {
               </p>
             </div>
 
+
+  <div className="tool-item">
+  <img src={powerbiLogo} alt="Power BI" className="tool-image" />
+  <p className="tool-desc">
+    Outil de visualisation de données et de création de tableaux de bord interactifs.
+  </p>
+</div>
+
             <div className="tool-item">
               <img src={ciscoLogo} alt="Cisco Packet Tracer" className="tool-image" />
               <p className="tool-desc">
@@ -239,4 +259,8 @@ const About = () => {
   );
 };
 
+
 export default About;
+
+
+
