@@ -13,6 +13,30 @@
   text-align: center;
   margin-bottom: 3rem;
   animation: slideDown 0.8s ease-out;
+  font-size: 2.2rem;
+  color: #450920;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-header::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #da627d, #450920);
+  border-radius: 2px;
+  animation: lineExpand 0.8s ease-out 0.4s forwards;
+}
+
+@keyframes lineExpand {
+  from { width: 0; }
+  to { width: 60%; }
 }
 
 .project-title {
@@ -34,13 +58,18 @@
 }
 
 .project-logo {
+  display: block;
+  margin: 0 auto 2rem auto;
   max-width: 200px;
-  margin-bottom: 1rem;
-  transition: transform 0.3s ease;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(69, 9, 32, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .project-logo:hover {
-  transform: scale(1.05);
+  transform: scale(1.08) rotate(2deg);
+  box-shadow: 0 15px 35px rgba(69, 9, 32, 0.3);
 }
 
 .project-date {
@@ -190,6 +219,12 @@
 @keyframes rotate {
   from { transform: rotate(-180deg); }
   to { transform: rotate(0); }
+}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.5); }
+  70% { transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
 }
 
 /* Responsive Design */

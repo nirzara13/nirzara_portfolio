@@ -1,233 +1,23 @@
-// import React, { useState } from 'react';
-// import ReCAPTCHA from 'react-google-recaptcha';
-// import { toast, ToastContainer } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-// import '../styles/Contact.css';
-
-// const Contact = () => {
-//   const [formData, setFormData] = useState({
-//     name: '',
-//     email: '',
-//     subject: '',
-//     message: '',
-//   });
-
-//   const [errors, setErrors] = useState({});
-//   const [captchaToken, setCaptchaToken] = useState(null);
-//   const [isSubmitting, setIsSubmitting] = useState(false);
-
-//   const validateForm = () => {
-//     const newErrors = {};
-
-//     if (!formData.name.trim() || formData.name.trim().length < 2) {
-//       newErrors.name = 'Le nom doit contenir au moins 2 caractères';
-//     }
-
-//     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-//     if (!emailRegex.test(formData.email)) {
-//       newErrors.email = 'Veuillez entrer une adresse email valide';
-//     }
-
-//     if (!formData.subject.trim() || formData.subject.trim().length < 3) {
-//       newErrors.subject = 'Le sujet doit contenir au moins 3 caractères';
-//     }
-
-//     if (!formData.message.trim() || formData.message.trim().length < 10) {
-//       newErrors.message = 'Le message doit contenir au moins 10 caractères';
-//     }
-
-//     setErrors(newErrors);
-//     return Object.keys(newErrors).length === 0;
-//   };
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-
-//     if (!validateForm()) {
-//       toast.error('Veuillez corriger les erreurs dans le formulaire');
-//       return;
-//     }
-
-//     if (!captchaToken) {
-//       toast.error('Veuillez vérifier que vous êtes un humain');
-//       return;
-//     }
-
-//     setIsSubmitting(true);
-
-//     try {
-//       const response = await fetch('/api/sendEmail', {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify({
-//           formData,
-//           token: captchaToken,
-//         }),
-//       });
-
-//       const data = await response.json();
-
-//       if (data.success) {
-//         toast.success('Message envoyé avec succès !');
-//         setFormData({ name: '', email: '', subject: '', message: '' });
-//         setCaptchaToken(null);
-
-//         if (window.grecaptcha) {
-//           window.grecaptcha.reset();
-//         }
-//       } else {
-//         toast.error(data.message || 'Erreur lors de l\'envoi du message');
-//       }
-//     } catch (error) {
-//       console.error('Erreur:', error);
-//       toast.error('Erreur lors de la communication avec le serveur');
-//     } finally {
-//       setIsSubmitting(false);
-//     }
-//   };
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData((prev) => ({
-//       ...prev,
-//       [name]: value,
-//     }));
-
-//     if (errors[name]) {
-//       setErrors((prev) => ({
-//         ...prev,
-//         [name]: '',
-//       }));
-//     }
-//   };
-
-//   return (
-//     <div className="contact-container">
-//       <ToastContainer position="top-right" />
-//       <h1 className="contact-title">Contactez-moi</h1>
-
-//       <div className="contact-content">
-//         <div className="contact-info">
-//           <h2>Mes Coordonnées</h2>
-//           <div className="info-item">
-//             <i className="fas fa-envelope"></i>
-//             <p>votre-email@example.com</p>
-//           </div>
-//           <div className="info-item">
-//             <i className="fas fa-phone"></i>
-//             <p>+33 6 XX XX XX XX</p>
-//           </div>
-//           <div className="info-item">
-//             <i className="fas fa-map-marker-alt"></i>
-//             <p>Paris, France</p>
-//           </div>
-
-//           <div className="social-links">
-//             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-//               <i className="fab fa-linkedin"></i>
-//             </a>
-//             <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-//               <i className="fab fa-github"></i>
-//             </a>
-//           </div>
-//         </div>
-
-//         <form className="contact-form" onSubmit={handleSubmit}>
-//           <div className="form-group">
-//             <input
-//               type="text"
-//               name="name"
-//               placeholder="Votre nom"
-//               value={formData.name}
-//               onChange={handleChange}
-//               className={errors.name ? 'error' : ''}
-//               required
-//             />
-//             {errors.name && <span className="error-message">{errors.name}</span>}
-//           </div>
-
-//           <div className="form-group">
-//             <input
-//               type="email"
-//               name="email"
-//               placeholder="Votre email"
-//               value={formData.email}
-//               onChange={handleChange}
-//               className={errors.email ? 'error' : ''}
-//               required
-//             />
-//             {errors.email && <span className="error-message">{errors.email}</span>}
-//           </div>
-
-//           <div className="form-group">
-//             <input
-//               type="text"
-//               name="subject"
-//               placeholder="Sujet"
-//               value={formData.subject}
-//               onChange={handleChange}
-//               className={errors.subject ? 'error' : ''}
-//               required
-//             />
-//             {errors.subject && <span className="error-message">{errors.subject}</span>}
-//           </div>
-
-//           <div className="form-group">
-//             <textarea
-//               name="message"
-//               placeholder="Votre message"
-//               value={formData.message}
-//               onChange={handleChange}
-//               className={errors.message ? 'error' : ''}
-//               required
-//             ></textarea>
-//             {errors.message && <span className="error-message">{errors.message}</span>}
-//           </div>
-
-//           <div className="captcha-container">
-//             <ReCAPTCHA
-//               sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
-//               onChange={(token) => setCaptchaToken(token)}
-//             />
-//           </div>
-
-//           <button
-//             type="submit"
-//             className="submit-button"
-//             disabled={isSubmitting}
-//           >
-//             {isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}
-//           </button>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Contact;
-
-
-
-
-// Nouveau code sans reCAPTCHA 
-
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import emailjs from '@emailjs/browser';
 import '../styles/Contact.css';
 
+// ─── Clés EmailJS — à remplir ───
+const EMAILJS_SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+
 /* ───────────────────────────────────────────
-   CONFETTI ENGINE (légère, sans dépendance)
+   CONFETTI ENGINE
    ─────────────────────────────────────────── */
-const launchConfetti = (container) => {
+const launchConfetti = () => {
   const colors = ['#450920', '#a53860', '#da627d', '#ffa5ab', '#e2d1d1', '#fff'];
   const confettiCount = 80;
 
   for (let i = 0; i < confettiCount; i++) {
     const confetti = document.createElement('div');
-    confetti.className = 'confetti-piece';
     const size = Math.random() * 8 + 4;
     const isCircle = Math.random() > 0.5;
 
@@ -267,7 +57,7 @@ const Contact = () => {
   const [messageSent, setMessageSent] = useState(false);
   const [focusedField, setFocusedField] = useState(null);
 
-  // ─── Anti-spam : honeypot + timestamp ───
+  // ─── Anti-spam ───
   const [honeypot, setHoneypot] = useState('');
   const formLoadTime = useRef(Date.now());
   const submitCount = useRef(0);
@@ -276,6 +66,10 @@ const Contact = () => {
   // ─── Animations au scroll ───
   const sectionRefs = useRef([]);
   const [visibleSections, setVisibleSections] = useState(new Set());
+
+  useEffect(() => {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -328,22 +122,13 @@ const Contact = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  // ─── Anti-spam checks ───
+  // ─── Anti-spam ───
   const isSpam = () => {
-    // 1. Honeypot rempli = bot
-    if (honeypot) {
-      console.log('Bot détecté via honeypot');
-      return true;
-    }
+    if (honeypot) return true;
 
-    // 2. Formulaire soumis trop vite (< 3 secondes)
     const timeSinceLoad = Date.now() - formLoadTime.current;
-    if (timeSinceLoad < 3000) {
-      console.log('Soumission trop rapide');
-      return true;
-    }
+    if (timeSinceLoad < 3000) return true;
 
-    // 3. Rate limiting : max 3 envois par minute
     const now = Date.now();
     if (now - lastSubmitTime.current < 20000) {
       submitCount.current += 1;
@@ -360,7 +145,7 @@ const Contact = () => {
     return false;
   };
 
-  // ─── Soumission ───
+  // ─── Soumission avec EmailJS ───
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -370,7 +155,6 @@ const Contact = () => {
     }
 
     if (isSpam()) {
-      // On fait croire au bot que c'est envoyé
       toast.success('Message envoyé avec succès !');
       return;
     }
@@ -378,33 +162,27 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/sendEmail', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
         },
-        body: JSON.stringify({
-          formData,
-          // Plus de token captcha nécessaire
-          timestamp: formLoadTime.current,
-        }),
-      });
+        EMAILJS_PUBLIC_KEY
+      );
 
-      const data = await response.json();
+      setMessageSent(true);
+      launchConfetti();
+      toast.success('Message envoyé avec succès ! 🎉');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      setTimeout(() => setMessageSent(false), 5000);
 
-      if (data.success) {
-        setMessageSent(true);
-        launchConfetti();
-        toast.success('Message envoyé avec succès ! 🎉');
-        setFormData({ name: '', email: '', subject: '', message: '' });
-
-        setTimeout(() => setMessageSent(false), 5000);
-      } else {
-        toast.error(data.message || "Erreur lors de l'envoi du message");
-      }
     } catch (error) {
-      console.error('Erreur:', error);
-      toast.error('Erreur lors de la communication avec le serveur');
+      console.error('Erreur EmailJS:', error);
+      toast.error("Erreur lors de l'envoi du message");
     } finally {
       setIsSubmitting(false);
       formLoadTime.current = Date.now();
@@ -414,16 +192,10 @@ const Contact = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: '' }));
     }
   };
-
-  // ─── Données de coordonnées ───
-  const contactItems = [
-    { icon: 'fas fa-map-marker-alt', text: 'Paris, France', delay: 0.1 },
-  ];
 
   const formFields = [
     { name: 'name', type: 'text', placeholder: 'Votre nom', icon: '👤' },
@@ -435,14 +207,14 @@ const Contact = () => {
     <div className="contact-container">
       <ToastContainer position="top-right" />
 
-      {/* ─── Fond décoratif animé ─── */}
+     
       <div className="contact-bg-shapes">
         <div className="bg-shape bg-shape-1"></div>
         <div className="bg-shape bg-shape-2"></div>
         <div className="bg-shape bg-shape-3"></div>
       </div>
 
-      {/* ─── Titre ─── */}
+      
       <div
         ref={(el) => addRef(el, 0)}
         className={`contact-header ${visibleSections.has('0') ? 'animate-in' : ''}`}
@@ -451,7 +223,7 @@ const Contact = () => {
       </div>
 
       <div className="contact-content">
-        {/* ─── Colonne Info ─── */}
+       
         <div
           ref={(el) => addRef(el, 1)}
           className={`contact-info ${visibleSections.has('1') ? 'animate-in' : ''}`}
@@ -461,41 +233,38 @@ const Contact = () => {
             <div className="info-decoration"></div>
           </div>
 
-          {contactItems.map((item, i) => (
-            <div
-              key={i}
-              className="info-item"
-              style={{ animationDelay: `${item.delay + 0.3}s` }}
-            >
-              <div className="info-icon-wrapper">
-                <i className={item.icon}></i>
-              </div>
-              <p>{item.text}</p>
+          <div className="info-item">
+            <div className="info-icon-wrapper">
+              <i className="fas fa-map-marker-alt"></i>
             </div>
-          ))}
-
-          <div className="social-links">
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-              aria-label="LinkedIn"
-            >
-              <i className="fab fa-linkedin"></i>
-            </a>
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-              aria-label="GitHub"
-            >
-              <i className="fab fa-github"></i>
-            </a>
+            <p>Paris, France</p>
           </div>
 
-          {/* Illustration décorative */}
+        
+          
+
+<div className="social-links">
+  
+ <a   href="VOTRE_LIEN_LINKEDIN"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="social-link linkedin"
+    aria-label="LinkedIn"
+  >
+    <i className="fab fa-linkedin"></i>
+    <span>LinkedIn</span>
+  </a>
+  
+   <a href="VOTRE_LIEN_GITHUB"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="social-link github"
+    aria-label="GitHub"
+  >
+    <i className="fab fa-github"></i>
+    <span>GitHub</span>
+  </a>
+</div>
           <div className="info-illustration">
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -507,7 +276,7 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* ─── Formulaire ─── */}
+        
         <div
           ref={(el) => addRef(el, 2)}
           className={`contact-form-wrapper ${visibleSections.has('2') ? 'animate-in' : ''}`}
@@ -521,12 +290,10 @@ const Contact = () => {
           )}
 
           <form className="contact-form" onSubmit={handleSubmit}>
-            {/* ─── Honeypot (invisible pour les humains) ─── */}
+           
             <div style={{ position: 'absolute', left: '-9999px', opacity: 0, height: 0, overflow: 'hidden' }}>
-              <label htmlFor="website">Ne pas remplir ce champ</label>
               <input
                 type="text"
-                id="website"
                 name="website"
                 tabIndex="-1"
                 autoComplete="off"
@@ -538,9 +305,7 @@ const Contact = () => {
             {formFields.map((field, i) => (
               <div
                 key={field.name}
-                className={`form-group ${focusedField === field.name ? 'focused' : ''} ${
-                  formData[field.name] ? 'has-value' : ''
-                }`}
+                className={`form-group ${focusedField === field.name ? 'focused' : ''} ${formData[field.name] ? 'has-value' : ''}`}
                 style={{ animationDelay: `${i * 0.1 + 0.2}s` }}
               >
                 <div className="input-wrapper">
@@ -567,9 +332,7 @@ const Contact = () => {
             ))}
 
             <div
-              className={`form-group ${focusedField === 'message' ? 'focused' : ''} ${
-                formData.message ? 'has-value' : ''
-              }`}
+              className={`form-group ${focusedField === 'message' ? 'focused' : ''} ${formData.message ? 'has-value' : ''}`}
               style={{ animationDelay: '0.5s' }}
             >
               <div className="input-wrapper textarea-wrapper">
@@ -621,11 +384,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-
-
-
-
-
-
-
