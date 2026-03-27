@@ -100,11 +100,13 @@
 }
 
 .project-screenshot {
-  width: 100%;
+  width: 60%;          /* Réduit la taille — change selon ton goût */
+  display: block;
+  margin: 2rem auto;   /* Centre l'image */
   border-radius: 12px;
-  margin: 2rem 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
+  image-rendering: crisp-edges;  /* Améliore la netteté */
 }
 
 .project-screenshot:hover {
