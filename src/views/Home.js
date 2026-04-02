@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import '../styles/Home.css';
 import { FaUsers, FaClipboardList, FaSyncAlt } from 'react-icons/fa';
 
