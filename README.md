@@ -67,4 +67,22 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<!-- 
+Dans Home.js, tu as deux endroits à modifier :
+1. Le tableau tags — pour les pills ronds en bas :
+jsxconst tags = ['Cybersécurité', 'Développement Web', 'Power BI', 'HTML/CSS', 'Réseaux', 'SQL'];
+
+// Pour ajouter, il suffit d'ajouter une virgule et ton nouveau tag :
+const tags = ['Cybersécurité', 'Développement Web', 'Power BI', 'HTML/CSS', 'Réseaux', 'SQL', 'Python'];
+2. Le tableau hexSkills — pour les hexagones flottants :
+jsxconst hexSkills = [
+  { label: 'Cybersécurité', ... },
+  { label: 'Dev Web',       ... },
+  { label: 'Power BI',      ... },
+  { label: 'HTML / CSS',    ... },
+  { label: 'Réseaux',       ... },
+  { label: 'SQL',           ... },
+  // ← Ajoute ici un nouvel hexagone si tu veux
+];
+⚠️ Pour hexSkills, si tu ajoutes un hexagone il faut aussi lui donner une position (top, left, right, bottom), une taille (size), une couleur (bg, color) et des délais d'animation. C'est un peu plus technique.
+Mon conseil — ajoute juste dans tags, c'est plus simple et suffisant ! 😊 -->

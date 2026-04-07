@@ -4,13 +4,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import emailjs from '@emailjs/browser';
 import '../styles/Contact.css';
 
-// ─── Clés EmailJS — à remplir ───
+// ─── Clés EmailJS — EN DEHORS du composant ───
 const EMAILJS_SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
 const EMAILJS_PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 
 /* ───────────────────────────────────────────
-   CONFETTI ENGINE
+   CONFETTI ENGINE — EN DEHORS du composant
    ─────────────────────────────────────────── */
 const launchConfetti = () => {
   const colors = ['#450920', '#a53860', '#da627d', '#ffa5ab', '#e2d1d1', '#fff'];
@@ -46,6 +46,7 @@ const launchConfetti = () => {
    COMPOSANT CONTACT
    ─────────────────────────────────────────── */
 const Contact = () => {
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -127,7 +128,7 @@ const Contact = () => {
     if (honeypot) return true;
 
     const timeSinceLoad = Date.now() - formLoadTime.current;
-    if (timeSinceLoad < 3000) return true;
+    if (timeSinceLoad < 1000) return true; // réduit à 1s
 
     const now = Date.now();
     if (now - lastSubmitTime.current < 20000) {
@@ -155,7 +156,7 @@ const Contact = () => {
     }
 
     if (isSpam()) {
-      toast.success('Message envoyé avec succès !');
+      toast.warning('Veuillez patienter avant de renvoyer un message.');
       return;
     }
 
@@ -207,14 +208,14 @@ const Contact = () => {
     <div className="contact-container">
       <ToastContainer position="top-right" />
 
-     
+      {/* ─── Fond décoratif ─── */}
       <div className="contact-bg-shapes">
         <div className="bg-shape bg-shape-1"></div>
         <div className="bg-shape bg-shape-2"></div>
         <div className="bg-shape bg-shape-3"></div>
       </div>
 
-      
+      {/* ─── Titre ─── */}
       <div
         ref={(el) => addRef(el, 0)}
         className={`contact-header ${visibleSections.has('0') ? 'animate-in' : ''}`}
@@ -223,7 +224,7 @@ const Contact = () => {
       </div>
 
       <div className="contact-content">
-       
+        {/* ─── Colonne Info ─── */}
         <div
           ref={(el) => addRef(el, 1)}
           className={`contact-info ${visibleSections.has('1') ? 'animate-in' : ''}`}
@@ -240,31 +241,30 @@ const Contact = () => {
             <p>Paris, France</p>
           </div>
 
-        
-          
+          {/* ─── Liens sociaux ─── */}
+          <div className="social-links">
+            <a
+              href="VOTRE_LIEN_LINKEDIN"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link linkedin"
+              aria-label="LinkedIn"
+            >
+              <i className="fab fa-linkedin"></i>
+              <span>LinkedIn</span>
+            </a>
+            <a
+              href="VOTRE_LIEN_GITHUB"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link github"
+              aria-label="GitHub"
+            >
+              <i className="fab fa-github"></i>
+              <span>GitHub</span>
+            </a>
+          </div>
 
-<div className="social-links">
-  
- <a   href="VOTRE_LIEN_LINKEDIN"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="social-link linkedin"
-    aria-label="LinkedIn"
-  >
-    <i className="fab fa-linkedin"></i>
-    <span>LinkedIn</span>
-  </a>
-  
-   <a href="VOTRE_LIEN_GITHUB"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="social-link github"
-    aria-label="GitHub"
-  >
-    <i className="fab fa-github"></i>
-    <span>GitHub</span>
-  </a>
-</div>
           <div className="info-illustration">
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -276,7 +276,7 @@ const Contact = () => {
           </div>
         </div>
 
-        
+        {/* ─── Formulaire ─── */}
         <div
           ref={(el) => addRef(el, 2)}
           className={`contact-form-wrapper ${visibleSections.has('2') ? 'animate-in' : ''}`}
@@ -290,7 +290,7 @@ const Contact = () => {
           )}
 
           <form className="contact-form" onSubmit={handleSubmit}>
-           
+            {/* ─── Honeypot anti-spam ─── */}
             <div style={{ position: 'absolute', left: '-9999px', opacity: 0, height: 0, overflow: 'hidden' }}>
               <input
                 type="text"
